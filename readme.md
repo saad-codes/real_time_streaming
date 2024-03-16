@@ -40,10 +40,3 @@ Once the containers are up and running, you can access the Flask MySQL applicati
 ```plaintext
 http://localhost:5000
 ```
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-```
-
-Make sure to include a file named `LICENSE` in your repository with the text of the MIT License.
