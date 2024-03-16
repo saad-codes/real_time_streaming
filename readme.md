@@ -1,6 +1,5 @@
 Sure, here's the updated content with the MIT License included:
 
-```markdown
 # Flask MySQL Application
 
 ## Overview
