@@ -40,6 +40,9 @@ def index():
     cursor.execute('SELECT * FROM users')
     users = cursor.fetchall()
     return render_template('index.html', users=users)
+@app.route('/home')
+def home():
+    return "Hello saad"
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
@@ -50,4 +53,4 @@ def add_user():
     return 'User added successfully!'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='18.139.163.37', port=5000)
