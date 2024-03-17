@@ -4,18 +4,21 @@ import mysql.connector
 app = Flask(__name__)
 
 # MySQL configuration
-mysql_host = 'mysql'
+mysql_host = 'localhost'
 mysql_user = 'root'
 mysql_password = 'password'
 mysql_database = 'sys'
+mysql_port = 3307  # Use the mapped host port
 
 # Connect to MySQL
 db = mysql.connector.connect(
     host=mysql_host,
     user=mysql_user,
     password=mysql_password,
-    database=mysql_database
+    database=mysql_database,
+    port=mysql_port
 )
+
 cursor = db.cursor()
 
 # Check if the 'users' table exists, if not, create it

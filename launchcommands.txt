@@ -1,3 +1,22 @@
-cacls .\real_time_streaming_saad.pem /inheritance:r /grant:r "%USERNAME%:(R)"
-attrib +R real_time_streaming_saad.pem
- scp -i .\real_time_streaming_saad.pem app.py .\Dockerfile .\templates\ ec2-user@46.137.230.23:/home/ec2-user/test
+#!/bin/bash
+
+# Update the system and install necessary packages
+sudo yum update -y
+sudo yum install -y git docker
+
+sudo yum install -y python3-pip
+export PATH=$PATH:/usr/local/bin
+pip3 install Flask mysql-connector-python
+
+# Start the Docker service
+sudo service docker start
+
+# Clone the GitHub repository
+git clone https://github.com/saad-codes/real_time_streaming.git /opt/
+
+# Navigate to the application directory
+cd /opt/real_time_streaming
+
+docker run -d --name mysql_db -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=my_database -p 3307:3306 mysql:latest --bind-address=0.0.0.0
+
+python3 app.py
