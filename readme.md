@@ -21,7 +21,7 @@ docker build -t flask-mysql-app .
 Run a MySQL Docker container with the required configurations:
 
 ```bash
-docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=example mysql:latest
+docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=sys mysql:latest
 ```
 
 ### Step 3: Run Flask Application
